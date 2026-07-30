@@ -1,3 +1,7 @@
-## Webpack Template
+## Weather App
 
-Includes package.json and webpack config that switches between developer and production mode.
+Basic weather app that returns the current weather conditions for the desired city.
+
+Uses Visual Crossing's and Giphy's API.
+
+The project was made according to The Odin Project's requirements.
