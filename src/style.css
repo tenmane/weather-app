@@ -1,0 +1,70 @@
+:root {
+  --primary-color: #c5c5c9;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(./Roboto-Regular.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background: linear-gradient(to right, #0f2027, #2c5364);
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  font-family: Roboto;
+  font-weight: 700;
+}
+#city-form {
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}
+
+#city-form input[type="text"] {
+  background-color: #5050811a;
+  border: none;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#city-form input[type="text"]:focus {
+  outline: 1px solid var(--primary-color);
+}
+#city-form button {
+  background-color: var(--primary-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  border-radius: 0px 10px 10px 0px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.6;
+}
