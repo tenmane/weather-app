@@ -6,7 +6,7 @@ export default {
   output: {
     filename: "main.js",
     path: path.resolve(import.meta.dirname, "dist"),
-    clean: true
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -29,8 +29,8 @@ export default {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
-    ]
-  }
+    ],
+  },
 };
