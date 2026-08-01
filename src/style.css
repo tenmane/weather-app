@@ -31,7 +31,7 @@ body {
   position: relative;
 }
 
-#city-form input[type="text"] {
+#city-form input {
   background-color: #8e8ebd1a;
   border: none;
   padding: 1rem 0.7rem;
@@ -43,7 +43,7 @@ body {
   color: white;
 }
 
-#city-form input[type="text"]:focus {
+#city-form input:focus {
   outline: 1px solid var(--primary-color);
 }
 
