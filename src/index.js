@@ -1,21 +1,40 @@
 import "./reset.css";
 import "./style.css";
 import {
-  Weather,
-  getTemperature,
-  getHumidity,
-  getWind,
-  getTime,
-  getConditions,
-  getAddress,
-  getIcon,
-} from "./API/weather-api.js";
+  changeFormat,
+  deployLoadingScreen,
+  getInput,
+  renderContent,
+  showError,
+} from "./DOM/weatherDOM.js";
+import { getData } from "./API/weather-api.js";
 
-const data = await Weather("Arizona", "metric");
-getTemperature(data);
-getHumidity(data);
-getWind(data);
-getTime(data);
-getConditions(data);
-getAddress(data);
-getIcon(data);
+const form = document.getElementById("city-form");
+const content = document.getElementById("content");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  deployLoadingScreen();
+  content.classList.remove("error");
+  try {
+    const [metricData, usData] = await Promise.all([
+      getData(getInput().value, "metric"),
+      getData(getInput().value, "us"),
+    ]);
+    content.innerHTML = "";
+    await renderContent(metricData);
+
+    const celsius = document.querySelector(".celsius-btn");
+    celsius.addEventListener("click", function () {
+      changeFormat("C", metricData.temp, metricData.feelsLike);
+    });
+
+    const fahrenheit = document.querySelector(".fahrenheit-btn");
+    fahrenheit.addEventListener("click", async function () {
+      changeFormat("F", usData.temp, usData.feelsLike);
+    });
+  } catch (err) {
+    content.innerHTML = "";
+    showError(err);
+  }
+});
